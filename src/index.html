@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  __HEAD__
+  <link rel="icon" href="__BASE__logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css">
+  <style>
+    :root {
+      --bg: #fff; --surface: #f6f6f5; --surface-2: #ececeb; --ink: #141414; --ink-soft: #55585a;
+      --muted: #6b6e70; --line: #14141424; --accent: #697075; --accent-hover: #4d5255;
+      --panel-bg: #141414; --panel-fg: #f4f4f3; --radius-sm: 7px; --radius-md: 11px;
+      --theme-color: var(--ink);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1011; --surface: #17181a; --surface-2: #1c1d1f; --ink: #ededec; --ink-soft: #b0b3b5;
+        --muted: #8a8d8f; --line: #ffffff1a; --accent: #9aa2a7; --accent-hover: #b6bdc1;
+        --panel-bg: #f4f4f3; --panel-fg: #141414;
+      }
+    }
+    body, .sidebar, .markdown-section { font-family: "Plus Jakarta Sans", Inter, -apple-system, system-ui, sans-serif; }
+    body { background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+    .sidebar { background: var(--surface); border-right: 1px solid var(--line); padding-top: 24px; }
+    .sidebar > h1 { margin: 0 0 20px; padding: 0 20px; text-align: left; font-size: 1rem; font-weight: 700; letter-spacing: -.01em; }
+    .sidebar > h1 a { color: var(--ink); display: flex; align-items: center; gap: 10px; }
+    .sidebar > h1 img { width: 28px; height: 28px; border-radius: var(--radius-sm); }
+    .sidebar ul li a { color: var(--ink-soft); font-size: .9rem; border-radius: var(--radius-sm); padding: 6px 10px; display: block; }
+    .sidebar ul li a:hover { color: var(--ink); text-decoration: none; background: var(--surface-2); }
+    .sidebar ul li.active > a { color: var(--ink); font-weight: 600; border-right: 0; background: var(--surface-2); }
+    .app-sub-sidebar li::before { content: none !important; }
+    .app-sub-sidebar li a { font-size: .85rem; padding-left: 14px; }
+    .sidebar-toggle { background: transparent; }
+    .sidebar-toggle span { background-color: var(--ink); }
+    .markdown-section { max-width: 760px; padding: 48px 32px 64px; color: var(--ink); }
+    .markdown-section h1, .markdown-section h2, .markdown-section h3, .markdown-section strong { color: var(--ink); letter-spacing: -.02em; }
+    .markdown-section h1 { font-size: 2.25rem; font-weight: 700; }
+    .markdown-section h2 { font-size: 1.5rem; font-weight: 600; border-top: 1px solid var(--line); padding-top: 28px; margin-top: 36px; }
+    .markdown-section p, .markdown-section li { color: var(--ink-soft); line-height: 1.7; }
+    .markdown-section a { color: var(--ink); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); }
+    .markdown-section a:hover { text-decoration-color: var(--ink); }
+    .markdown-section h1 a, .markdown-section h2 a, .markdown-section h3 a { color: inherit; text-decoration: none; font-weight: inherit; }
+    .markdown-section .anchor span { color: var(--ink); }
+    .markdown-section code, .markdown-section pre { background: var(--surface); color: var(--ink); font-family: "JetBrains Mono", ui-monospace, monospace; border-radius: var(--radius-sm); }
+    .markdown-section pre { border: 1px solid var(--line); }
+    .markdown-section pre > code { color: var(--ink); background: transparent; }
+    .markdown-section table { display: table; width: 100%; }
+    .markdown-section tr:nth-child(2n) { background: var(--surface); }
+    .markdown-section td, .markdown-section th { border: 1px solid var(--line); padding: 8px 12px; }
+    .markdown-section blockquote { border-left: 3px solid var(--ink); background: var(--surface); padding: 12px 16px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; color: var(--ink-soft); }
+    .markdown-section p.tip { background: var(--surface); border-left: 4px solid var(--ink); border-radius: var(--radius-sm); color: var(--ink-soft); }
+    .markdown-section p.tip:before { background-color: var(--ink); color: var(--bg); }
+    .cta { display: inline-block; background: var(--panel-bg); color: var(--panel-fg) !important; text-decoration: none !important; padding: 10px 18px; border-radius: var(--radius-sm); font-weight: 600; }
+    .app-nav { display: none; }
+    section.cover { display: none; }
+
+    /* ── Header ── */
+    :root { --header-h: 60px; }
+    .site-header { position: fixed; top: 0; left: 0; right: 0; height: var(--header-h); z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 24px; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: saturate(1.4) blur(8px); border-bottom: 1px solid var(--line); }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-weight: 700; letter-spacing: -.01em; }
+    .brand img { width: 28px; height: 28px; border-radius: var(--radius-sm); }
+    .brand .tag { font-size: .7rem; font-weight: 600; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px; letter-spacing: .02em; }
+    .site-nav { display: flex; align-items: center; gap: 4px; }
+    .site-nav a { color: var(--ink-soft); text-decoration: none; font-size: .9rem; font-weight: 500; padding: 8px 12px; border-radius: var(--radius-sm); }
+    .site-nav a:hover { color: var(--ink); background: var(--surface); }
+    .site-nav a.cta { color: var(--panel-fg); margin-left: 8px; padding: 8px 14px; font-size: .875rem; }
+    .site-nav a.cta:hover { background: var(--panel-bg); opacity: .88; }
+    .sidebar { top: var(--header-h); }
+    .sidebar > h1 { display: none; }
+    .content { padding-top: var(--header-h); }
+    .sidebar-toggle { display: none !important; }
+    .menu-btn { display: none; position: absolute; left: 8px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; align-items: center; justify-content: center; flex-direction: column; gap: 4px; background: transparent; border: 0; border-radius: var(--radius-sm); cursor: pointer; }
+    .menu-btn span { display: block; width: 18px; height: 2px; background: var(--ink); border-radius: 2px; }
+    .menu-btn:hover { background: var(--surface); }
+
+    /* ── Footer and page navigation ── */
+    .page-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 48px; }
+    .page-nav a { display: block; border: 1px solid var(--line); border-radius: var(--radius-md); padding: 14px 16px; text-decoration: none !important; }
+    .page-nav a:hover { border-color: var(--ink-soft); background: var(--surface); }
+    .page-nav .label { display: block; font-size: .75rem; color: var(--muted); font-weight: 500; }
+    .page-nav .title { display: block; color: var(--ink); font-weight: 600; margin-top: 2px; }
+    .page-nav .next { grid-column: 2; text-align: right; }
+    .page-meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-top: 32px; font-size: .85rem; color: var(--muted); }
+    .page-meta a { font-weight: 500; }
+    .site-footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: .85rem; color: var(--muted); }
+    .site-footer nav { display: flex; gap: 16px; flex-wrap: wrap; }
+    .markdown-section .site-footer a { color: var(--ink-soft); text-decoration: none; font-weight: 500; }
+    .markdown-section .site-footer a:hover { color: var(--ink); }
+    .site-footer p { margin: 0; color: var(--muted); }
+
+    /* ── Accessibility ── */
+    .skip-link { position: absolute; left: 12px; top: -48px; z-index: 100; background: var(--panel-bg); color: var(--panel-fg); padding: 8px 14px; border-radius: var(--radius-sm); font-weight: 600; text-decoration: none; }
+    .skip-link:focus { top: 12px; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; border-radius: var(--radius-sm); }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+
+    @media (max-width: 768px) {
+      .site-header { padding: 0 16px 0 56px; }
+      .sidebar-toggle { display: none !important; }
+      .menu-btn { display: flex; }
+      .site-nav a:not(.cta) { display: none; }
+      .brand .tag { display: none; }
+      .markdown-section { padding: 32px 16px 48px; }
+      .page-nav { grid-template-columns: 1fr; }
+      .page-nav .next { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <button class="menu-btn" type="button" aria-label="Open navigation" aria-expanded="false" onclick="event.stopPropagation();var o=document.body.classList.toggle('close');this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close navigation':'Open navigation')"><span></span><span></span><span></span></button>
+    <a class="brand" href="__BASE__" aria-label="Lensy Docs home">
+      <img src="__BASE__logo.png" alt="" width="28" height="28">
+      <span>Lensy Docs</span>
+      <span class="tag">Beta</span>
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="__BASE__quickstart">Quickstart</a>
+      <a href="__BASE__faq">FAQ</a>
+      <a href="https://x.com/getperseverance" rel="noopener">X</a>
+      <a class="cta" href="https://perseveranceai.com" rel="noopener">Run a free check</a>
+    </nav>
+  </header>
+  <div id="app"></div>
+  <script>
+    var BASE = '__BASE__';
+    var PAGES = [
+      ['', 'Introduction'],
+      ['quickstart', 'Quickstart'],
+      ['reading-your-report', 'Reading your report'],
+      ['fix-with-your-coding-agent', 'Fix it with your coding agent'],
+      ['faq', 'FAQ']
+    ];
+    function footerPlugin(hook, vm) {
+      hook.afterEach(function (html) {
+        var slug = vm.route.path.replace(BASE, '').replace(/^\/|\/$/g, '');
+        var i = PAGES.findIndex(function (p) { return p[0] === slug; });
+        var prev = i > 0 ? PAGES[i - 1] : null;
+        var next = i >= 0 && i < PAGES.length - 1 ? PAGES[i + 1] : null;
+        var nav = '<nav class="page-nav" aria-label="Pages">' +
+          (prev ? '<a class="prev" href="' + BASE + prev[0] + '"><span class="label">Previous</span><span class="title">' + prev[1] + '</span></a>' : '') +
+          (next ? '<a class="next" href="' + BASE + next[0] + '"><span class="label">Next</span><span class="title">' + next[1] + '</span></a>' : '') +
+          '</nav>';
+        var md = BASE + (slug || 'README') + '.md';
+        var meta = '<div class="page-meta"><span>Updated October 2026</span><a href="' + md + '">View this page as Markdown</a></div>';
+        var footer = '<footer class="site-footer"><p>© 2026 Perseverance AI</p><nav aria-label="Footer">' +
+          '<a href="https://perseveranceai.com" rel="noopener">perseveranceai.com</a>' +
+          '<a href="https://x.com/getperseverance" rel="noopener">X</a>' +
+          '<a href="https://github.com/perseveranceai" rel="noopener">GitHub</a></nav></footer>';
+        return html + (i >= 0 ? nav : '') + meta + footer;
+      });
+    }
+    window.$docsify = {
+      name: 'Lensy Docs',
+      nameLink: '__BASE__',
+      basePath: '/',
+      routerMode: 'history',
+      loadSidebar: true,
+      notFoundPage: '__BASE___404.md',
+      subMaxLevel: 2,
+      auto2top: true,
+      themeColor: 'var(--ink)',
+      plugins: [footerPlugin]
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
+</body>
+</html>
