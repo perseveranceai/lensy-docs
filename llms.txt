@@ -1,0 +1,11 @@
+# Lensy Docs
+
+> How to use Lensy, the AI readiness checker for developer docs by Perseverance AI.
+
+## Docs
+
+- [Lensy Docs](https://perseveranceai.github.io/lensy-docs/README.md): Learn how to use Lensy to check whether AI tools can find, read, and cite your developer documentation.
+- [Quickstart](https://perseveranceai.github.io/lensy-docs/quickstart.md): Run your first Lensy audit on a docs page and download the report.
+- [Reading your report](https://perseveranceai.github.io/lensy-docs/reading-your-report.md): What each part of a Lensy report means: readiness score, signals, fixes, AI bot access, and AI citations.
+- [Fix it with your coding agent](https://perseveranceai.github.io/lensy-docs/fix-with-your-coding-agent.md): Download the Markdown report and let Claude Code, Cursor, or Copilot work through the fixes in your docs repo.
+- [FAQ](https://perseveranceai.github.io/lensy-docs/faq.md): Answers to common questions about Lensy: pricing, rejected pages, crawlers, and accuracy.

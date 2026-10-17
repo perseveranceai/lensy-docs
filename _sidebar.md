@@ -1,0 +1,5 @@
+- [Introduction](/lensy-docs/)
+- [Quickstart](/lensy-docs/quickstart)
+- [Reading your report](/lensy-docs/reading-your-report)
+- [Fix it with your coding agent](/lensy-docs/fix-with-your-coding-agent)
+- [FAQ](/lensy-docs/faq)
